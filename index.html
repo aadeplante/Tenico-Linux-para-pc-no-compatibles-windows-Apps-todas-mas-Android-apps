@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnico Informático</title>
+    <style>
+        /* --- Estilos Generales y Reseteo Básico --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Fundamental para responsive */
+        }
+
+        html {
+            font-size: 16px; /* Define la base para las unidades 'rem' */
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #ff0000; /* FONDO ROJO APLICADO AQUÍ */
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Oculta cualquier desbordamiento para mantener el diseño */
+        }
+
+        /* --- Contenedor Principal (Simula el monitor) --- */
+        .all-in-one-container {
+            position: relative;
+            width: 90vw; /* Más ancho en móviles */
+            max-width: 800px; /* Incrementado para pantallas de escritorio */
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 (alto/ancho * 100) */
+            background-color: #333;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            /* Eliminamos display: flex, justify-content, align-items, flex-direction
+               porque el contenido de .screen es absoluto y no se ve afectado por estos */
+        }
+
+        /* --- Pantalla Interna --- */
+        .screen {
+            position: absolute;
+            top: 5%; /* Pequeño margen superior para el bisel */
+            left: 5%; /* Pequeño margen izquierdo para el bisel */
+            width: 90%; /* Ancho de la pantalla */
+            height: 80%; /* Altura de la pantalla, dejando espacio para el "bisel" inferior */
+            background-color: #000;
+            border-radius: 5px;
+            color: #00ff00; /* Color del texto tipo "terminal" */
+            padding: 1.25rem; /* Usamos rem para un padding adaptable (20px) */
+            box-sizing: border-box;
+            overflow: auto; /* Para permitir el scroll si el texto es muy largo */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem; /* Tamaño de fuente base adaptable para móviles */
+            line-height: 1.4;
+            text-align: left;
+            white-space: pre-wrap; /* Permite saltos de línea y espacios en blanco */
+        }
+
+        .screen p {
+            margin-bottom: 0.625rem; /* 10px en rem */
+        }
+
+        .screen .whatsapp {
+            font-weight: bold;
+            color: #25d366; /* Color verde de WhatsApp */
+            text-decoration: none;
+        }
+
+        /* --- Pie del Monitor (Stand) --- */
+        .stand {
+            position: absolute;
+            bottom: -2.5rem; /* Ajusta la posición del pie con rem (aprox 40px) */
+            left: 50%; /* Centrar el stand */
+            transform: translateX(-50%); /* Ajuste para centrarlo horizontalmente */
+            width: 30%;
+            height: 3.75rem; /* Altura con rem (aprox 60px) */
+            background-color: #333;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: -1; /* Envía el stand detrás del monitor */
+        }
+
+        /* --- Media Queries para Adaptación a Pantallas más Grandes --- */
+
+        /* Para tablets y pantallas un poco más grandes (ej. > 768px) */
+        @media (min-width: 768px) {
+            .all-in-one-container {
+                width: 70vw; /* Un poco menos ancho en tablets */
+            }
+
+            .screen {
+                font-size: 1rem; /* Aumenta el tamaño de fuente para tablets */
+                padding: 1.5rem; /* 24px en rem */
+            }
+
+            .screen p {
+                margin-bottom: 0.8rem; /* 12.8px en rem */
+            }
+
+            .stand {
+                bottom: -3rem; /* Ajusta el pie un poco más abajo */
+                height: 4.5rem; /* Un poco más alto */
+            }
+        }
+
+        /* Para pantallas de escritorio grandes (ej. > 1024px) */
+        @media (min-width: 1024px) {
+            .all-in-one-container {
+                width: 60vw; /* Más ancho para aprovechar el espacio */
+                max-width: 1000px; /* Mayor ancho máximo para la resolución 1920x1080 */
+            }
+
+            .screen {
+                font-size: 1.1rem; /* Tamaño de fuente ideal para escritorio */
+                padding: 2rem; /* 32px en rem */
+            }
+
+            .screen p {
+                margin-bottom: 1rem; /* 16px en rem */
+            }
+
+            .stand {
+                bottom: -4rem; /* Ajusta el pie para pantallas grandes */
+                height: 5rem; /* Mayor altura */
+            }
+        }
+
+        /* Específicamente para la resolución de 1920x1080 (o similar de gran ancho) */
+        @media (min-width: 1920px) {
+            .all-in-one-container {
+                width: 50vw; /* Ocupa la mitad del ancho de la pantalla */
+                max-width: 1200px; /* Limita el tamaño máximo para que no sea excesivo */
+            }
+
+            .screen {
+                font-size: 1.2rem; /* Tamaño de fuente ligeramente mayor para ultra HD */
+                padding: 2.5rem; /* 40px en rem */
+            }
+
+            .screen p {
+                margin-bottom: 1.25rem; /* 20px en rem */
+            }
+
+            .stand {
+                bottom: -5rem; /* Ajusta el pie aún más abajo */
+                height: 6rem; /* Mayor altura */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="all-in-one-container">
+        <div class="screen">
+            <p>Técnico informático</p>
+            <p>36 años en el rubro.</p>
+            <br>
+            <p>Tu PC no es compatible a pesar de ser relativamente nueva.</p>
+            <p>Yo tengo la solución no convencional a un problema convencional,</p>
+            <p>sin agregar hardware y con mejor rendimiento para estudiar y jugar.</p>
+            <br>
+            <p>Whatsapp: <a href="https://wa.me/5491127427996" target="_blank" class="whatsapp">1127427996</a></p>
+        </div>
+        <div class="stand"></div>
+    </div>
+</body>
+</html>
